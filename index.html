@@ -1,0 +1,671 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f3f1e9">
+    <meta name="description" content="Artist-designed workwear made to move, made to last, and designed with safety in mind.">
+    <title>UBestBeeWear — Workwear for the work you make</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #1d2922;
+        --muted: #606960;
+        --paper: #f3f1e9;
+        --white: #fbfaf6;
+        --line: #d9d9cf;
+        --moss: #586d51;
+        --lime: #c7d38e;
+        --rust: #b65f3f;
+        --serif: Georgia, "Times New Roman", serif;
+        --sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        color: var(--ink);
+        background: var(--paper);
+        font-family: var(--sans);
+        -webkit-font-smoothing: antialiased;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .announcement {
+        padding: 10px 20px;
+        color: var(--white);
+        background: var(--ink);
+        text-align: center;
+        font-size: 10px;
+        letter-spacing: .16em;
+        text-transform: uppercase;
+      }
+
+      .site-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 1440px;
+        margin: 0 auto;
+        padding: 23px 5.5%;
+      }
+
+      .wordmark {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 15px;
+        font-weight: 800;
+        letter-spacing: .12em;
+      }
+
+      .mark {
+        display: inline-grid;
+        width: 29px;
+        height: 29px;
+        place-items: center;
+        border: 1.5px solid var(--ink);
+        border-radius: 50%;
+        font-family: var(--serif);
+        font-size: 16px;
+        font-weight: 400;
+        letter-spacing: 0;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 35px;
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: .1em;
+        text-transform: uppercase;
+      }
+
+      .nav-links a:hover,
+      .text-link:hover {
+        color: var(--rust);
+      }
+
+      .nav-cta {
+        padding: 12px 17px;
+        border: 1px solid var(--ink);
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        max-width: 1440px;
+        min-height: 580px;
+        margin: 0 auto;
+        padding: 22px 5.5% 64px;
+        gap: 5%;
+        align-items: center;
+      }
+
+      .eyebrow {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin: 0 0 23px;
+        color: var(--moss);
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: .18em;
+        text-transform: uppercase;
+      }
+
+      .eyebrow::before {
+        width: 23px;
+        height: 1px;
+        background: currentColor;
+        content: "";
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      h1 {
+        max-width: 620px;
+        margin-bottom: 22px;
+        font-size: clamp(52px, 6.8vw, 94px);
+        font-weight: 500;
+        letter-spacing: -.075em;
+        line-height: .93;
+        text-transform: uppercase;
+      }
+
+      h1 span {
+        color: var(--moss);
+        font-family: var(--serif);
+        font-weight: 400;
+        font-style: italic;
+        letter-spacing: -.08em;
+        text-transform: none;
+      }
+
+      .hero-copy {
+        max-width: 440px;
+        margin-bottom: 30px;
+        color: var(--muted);
+        font-size: 15px;
+        line-height: 1.8;
+      }
+
+      .button {
+        display: inline-flex;
+        min-height: 48px;
+        align-items: center;
+        justify-content: center;
+        padding: 0 23px;
+        border: 1px solid var(--ink);
+        background: var(--ink);
+        color: var(--white);
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: .14em;
+        text-transform: uppercase;
+        transition: background .2s, color .2s;
+      }
+
+      .button:hover {
+        background: transparent;
+        color: var(--ink);
+      }
+
+      .text-link {
+        display: inline-block;
+        margin-left: 21px;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: .12em;
+        text-transform: uppercase;
+      }
+
+      .hero-art {
+        position: relative;
+        display: grid;
+        min-height: 470px;
+        overflow: hidden;
+        place-items: center;
+        background: #dce0d2;
+      }
+
+      .hero-art::before,
+      .hero-art::after {
+        position: absolute;
+        width: 330px;
+        height: 330px;
+        border: 1px solid rgba(29, 41, 34, .13);
+        border-radius: 50%;
+        content: "";
+      }
+
+      .hero-art::after {
+        width: 430px;
+        height: 430px;
+      }
+
+      .hero-art svg {
+        z-index: 1;
+        width: 69%;
+        max-height: 390px;
+        filter: drop-shadow(16px 19px 8px rgba(35, 43, 33, .13));
+      }
+
+      .art-caption {
+        position: absolute;
+        z-index: 2;
+        right: 20px;
+        bottom: 20px;
+        font-size: 9px;
+        font-weight: 700;
+        letter-spacing: .15em;
+        text-transform: uppercase;
+      }
+
+      .section {
+        padding: 88px 5.5%;
+      }
+
+      .section-inner {
+        max-width: 1280px;
+        margin: 0 auto;
+      }
+
+      .section-heading {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        margin-bottom: 32px;
+      }
+
+      h2 {
+        margin-bottom: 0;
+        font-size: clamp(34px, 4.1vw, 55px);
+        font-weight: 500;
+        letter-spacing: -.06em;
+        line-height: 1;
+      }
+
+      .section-note {
+        max-width: 300px;
+        margin: 0 0 3px;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.6;
+      }
+
+      .collection {
+        background: var(--white);
+      }
+
+      .product-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+      }
+
+      .product-image {
+        display: grid;
+        min-height: 310px;
+        overflow: hidden;
+        place-items: center;
+      }
+
+      .product-image svg {
+        width: 66%;
+        max-height: 260px;
+        filter: drop-shadow(10px 14px 6px rgba(35, 43, 33, .14));
+      }
+
+      .product-image.sand {
+        background: #e8e2d6;
+      }
+
+      .product-image.olive {
+        background: #d9dfd2;
+      }
+
+      .product-image.clay {
+        background: #e9d8ce;
+      }
+
+      .product-details {
+        display: flex;
+        justify-content: space-between;
+        padding-top: 15px;
+      }
+
+      .product-details h3 {
+        margin-bottom: 5px;
+        font-size: 14px;
+        font-weight: 600;
+      }
+
+      .product-details p,
+      .product-status {
+        margin: 0;
+        color: var(--muted);
+        font-size: 11px;
+        line-height: 1.5;
+      }
+
+      .product-status {
+        align-self: start;
+        font-size: 9px;
+        letter-spacing: .1em;
+        text-transform: uppercase;
+      }
+
+      .manifesto {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10%;
+        align-items: center;
+      }
+
+      .manifesto h2 {
+        max-width: 520px;
+        font-size: clamp(40px, 5vw, 67px);
+      }
+
+      .manifesto-copy {
+        max-width: 510px;
+        color: var(--muted);
+        font-size: 15px;
+        line-height: 1.85;
+      }
+
+      .manifesto-copy p:last-child {
+        margin-bottom: 0;
+      }
+
+      .safety {
+        background: var(--ink);
+        color: var(--white);
+      }
+
+      .safety-layout {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10%;
+        align-items: center;
+      }
+
+      .safety .eyebrow {
+        color: var(--lime);
+      }
+
+      .safety h2 {
+        max-width: 530px;
+        font-size: clamp(38px, 4.8vw, 63px);
+      }
+
+      .safety-copy {
+        color: #c5cbc3;
+        font-size: 14px;
+        line-height: 1.8;
+      }
+
+      .safety-note {
+        padding: 20px 22px;
+        border: 1px solid #536057;
+        color: #f0f0e9;
+        font-size: 12px;
+        line-height: 1.7;
+      }
+
+      .safety-note strong {
+        display: block;
+        margin-bottom: 6px;
+        color: var(--lime);
+        font-size: 9px;
+        letter-spacing: .12em;
+        text-transform: uppercase;
+      }
+
+      .closing {
+        padding: 80px 5.5%;
+        text-align: center;
+      }
+
+      .closing h2 {
+        margin-bottom: 17px;
+      }
+
+      .closing p {
+        margin-bottom: 25px;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      footer {
+        display: flex;
+        justify-content: space-between;
+        padding: 25px 5.5%;
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 10px;
+        letter-spacing: .08em;
+      }
+
+      footer a {
+        color: var(--ink);
+      }
+
+      @media (max-width: 760px) {
+        .site-header {
+          padding: 18px 6%;
+        }
+
+        .nav-links {
+          gap: 15px;
+        }
+
+        .nav-links a:not(.nav-cta) {
+          display: none;
+        }
+
+        .hero {
+          grid-template-columns: 1fr;
+          padding: 35px 6% 55px;
+          gap: 38px;
+        }
+
+        .hero-art {
+          min-height: 390px;
+        }
+
+        .section {
+          padding: 65px 6%;
+        }
+
+        .section-heading {
+          display: block;
+        }
+
+        .section-note {
+          margin-top: 15px;
+        }
+
+        .product-grid {
+          grid-template-columns: 1fr;
+          gap: 30px;
+        }
+
+        .product-image {
+          min-height: 340px;
+        }
+
+        .manifesto,
+        .safety-layout {
+          grid-template-columns: 1fr;
+          gap: 27px;
+        }
+
+        .closing {
+          padding: 65px 6%;
+        }
+      }
+
+      @media (max-width: 420px) {
+        .announcement {
+          font-size: 8px;
+        }
+
+        .wordmark {
+          font-size: 12px;
+        }
+
+        .nav-cta {
+          padding: 10px 12px;
+          font-size: 9px;
+        }
+
+        .hero-art {
+          min-height: 320px;
+        }
+
+        .product-image {
+          min-height: 290px;
+        }
+
+        .text-link {
+          display: block;
+          margin: 18px 0 0;
+        }
+
+        footer {
+          display: block;
+          line-height: 2;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        *,
+        *::before,
+        *::after {
+          transition-duration: .01ms !important;
+        }
+      }
+    </style>
+  </head>
+  <body id="top">
+    <div class="announcement">Workwear for the work you make · Artist-designed, made to move</div>
+    <header class="site-header">
+      <a class="wordmark" href="#top" aria-label="UBestBeeWear home">
+        <span class="mark" aria-hidden="true">B</span>
+        <span>UBESTBEEWEAR</span>
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#collection">The capsule</a>
+        <a href="#about">Our approach</a>
+        <a class="nav-cta" href="#contact">Stay in the loop</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div>
+          <p class="eyebrow">Clothes for creative work</p>
+          <h1 id="hero-title">Made to move.<br>Built to <span>last.</span></h1>
+          <p class="hero-copy">Thoughtful workwear for people who make things. Durable materials, considered details, and artful design—so you can feel like yourself while getting down to work.</p>
+          <a class="button" href="#collection">Explore the capsule</a>
+          <a class="text-link" href="#about">What we believe <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="hero-art" role="img" aria-label="Illustration of an olive-green artist's work jacket">
+          <svg viewBox="0 0 420 440" aria-hidden="true">
+            <path d="M133 73 174 54h72l41 19 51 41-34 55-29-20v221H145V149l-29 20-34-55 51-41Z" fill="#69775d" stroke="#35463b" stroke-width="3"/>
+            <path d="m174 54 36 40 36-40M210 94v276M166 121l27 23-12 21-36-24M254 121l-27 23 12 21 36-24" fill="none" stroke="#d5d8c8" stroke-width="2"/>
+            <path d="M145 204h49v64h-49zM226 204h48v64h-48z" fill="#596950" stroke="#35463b" stroke-width="2"/>
+            <path d="M153 212h33v41h-33zM234 212h32v41h-32z" fill="none" stroke="#aeb89e" stroke-width="1.5"/>
+            <path d="M210 95v27m0 18v17m0 18v17m0 18v17m0 18v17m0 18v17m0 18v17m0 18v17" stroke="#d5d8c8" stroke-width="2"/>
+            <path d="m123 84-30 27 21 34 31-21M297 84l30 27-21 34-31-21" fill="#7a866c" stroke="#35463b" stroke-width="3"/>
+            <path d="M158 284h31m43 0h31M158 293h31m43 0h31" stroke="#aeb89e" stroke-width="1.5"/>
+            <rect x="239" y="222" width="14" height="12" rx="2" fill="#c4ce8b"/>
+            <circle cx="210" cy="112" r="3" fill="#d5d8c8"/>
+          </svg>
+          <span class="art-caption">The everyday overshirt · Study 01</span>
+        </div>
+      </section>
+
+      <section class="section collection" id="collection" aria-labelledby="collection-title">
+        <div class="section-inner">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">A considered first capsule</p>
+              <h2 id="collection-title">Tools for your everyday.</h2>
+            </div>
+            <p class="section-note">Versatile layers. Useful pockets. Nothing fussy. Made to work hard and wear in beautifully.</p>
+          </div>
+          <div class="product-grid">
+            <article>
+              <div class="product-image sand" role="img" aria-label="Illustration of a natural canvas studio apron">
+                <svg viewBox="0 0 260 280" aria-hidden="true">
+                  <path d="M83 48c0-28 94-28 94 0v23l42 25-15 158H56L41 96l42-25V48Z" fill="#cbb99c" stroke="#756b59" stroke-width="3"/>
+                  <path d="M83 48c0 26 94 26 94 0M83 71 59 93m118-22 24 22" fill="none" stroke="#756b59" stroke-width="3"/>
+                  <path d="M75 148h110l-8 67H83z" fill="#b9a688" stroke="#756b59" stroke-width="2"/>
+                  <path d="M130 150v65m-55-52h110" stroke="#d9ccb7" stroke-width="2"/>
+                  <path d="M89 111h15m52 0h15M85 226h90" stroke="#756b59" stroke-width="2"/>
+                </svg>
+              </div>
+              <div class="product-details">
+                <div><h3>Studio Apron</h3><p>Canvas · A place for every tool</p></div>
+                <span class="product-status">In the works</span>
+              </div>
+            </article>
+            <article>
+              <div class="product-image olive" role="img" aria-label="Illustration of an olive-green utility overshirt">
+                <svg viewBox="0 0 260 280" aria-hidden="true">
+                  <path d="m81 42 30-12h38l30 12 39 31-25 40-23-16v142H60V97l-23 16-25-40 39-31Z" fill="#78866a" stroke="#3e4c3c" stroke-width="3"/>
+                  <path d="m111 30 19 24 19-24m-19 24v185m-48-99h44v43H82zm52 0h44v43h-44z" fill="none" stroke="#d0d7c4" stroke-width="2"/>
+                  <path d="M130 73v12m0 12v12m0 12v12m0 12v12m0 12v12m0 12v12m0 12v12" stroke="#d0d7c4" stroke-width="2"/>
+                  <path d="M90 123h28m-28 8h28m44-8h28m-28 8h28" stroke="#b6c0a8" stroke-width="1.5"/>
+                </svg>
+              </div>
+              <div class="product-details">
+                <div><h3>Everyday Overshirt</h3><p>Reinforced seams · Easy layering</p></div>
+                <span class="product-status">In the works</span>
+              </div>
+            </article>
+            <article>
+              <div class="product-image clay" role="img" aria-label="Illustration of rust-colored utility trousers">
+                <svg viewBox="0 0 260 280" aria-hidden="true">
+                  <path d="M71 36h118l-9 99-13 111h-47l-5-92-5 92H63L78 135l-7-99Z" fill="#b96e50" stroke="#744b3c" stroke-width="3"/>
+                  <path d="M71 36h118l-3 29H74l-3-29Zm59 29v89m-54-12h44v39H70m76-39h37v39h-42" fill="none" stroke="#e3b19b" stroke-width="2"/>
+                  <path d="M87 43h25m38 0h25m-91 73h33m44 0h25" stroke="#744b3c" stroke-width="2"/>
+                  <circle cx="130" cy="51" r="3" fill="#744b3c"/>
+                </svg>
+              </div>
+              <div class="product-details">
+                <div><h3>Utility Trouser</h3><p>Room to move · Built for repeat wear</p></div>
+                <span class="product-status">In the works</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="about" aria-labelledby="about-title">
+        <div class="section-inner manifesto">
+          <div>
+            <p class="eyebrow">Made by artists, for makers</p>
+            <h2 id="about-title">Your work is art.<br>What you wear can be, too.</h2>
+          </div>
+          <div class="manifesto-copy">
+            <p>We believe practical doesn't have to mean plain. UBestBeeWear brings artists into the design process, making durable pieces with a point of view—and details that feel as considered as the things you create.</p>
+            <p>We start with comfort, useful construction, and materials chosen to stand up to real days. Then we make room for color, shape, and the small expressions that make a piece feel like yours.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section safety" aria-labelledby="safety-title">
+        <div class="section-inner safety-layout">
+          <div>
+            <p class="eyebrow">Designed with care</p>
+            <h2 id="safety-title">Good design looks out for you.</h2>
+          </div>
+          <div class="safety-copy">
+            <p>Workwear should feel good to wear and make sense for the work at hand. We’re building with durable construction and thoughtful layering in mind, while putting safety information where it belongs: up front and clear.</p>
+            <div class="safety-note">
+              <strong>A note on protective gear</strong>
+              Our clothing is workwear, not certified personal protective equipment. It does not replace task-appropriate PPE. Always follow your workplace safety guidance and check that any clothing is suitable for your specific materials and activity.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="closing" id="contact" aria-labelledby="contact-title">
+        <p class="eyebrow" style="justify-content:center">The first capsule is taking shape</p>
+        <h2 id="contact-title">Make good things. Wear good things.</h2>
+        <p>Explore the pieces we’re creating for days in the studio and beyond.</p>
+        <a class="button" href="#collection">View the capsule</a>
+      </section>
+    </main>
+
+    <footer>
+      <span>© 2026 UBestBeeWear</span>
+      <span>Made for the work you make · <a href="#hero-title">Back to top ↑</a></span>
+    </footer>
+  </body>
+</html>
